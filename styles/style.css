@@ -1,0 +1,46 @@
+#mainDiv{
+    display: flex;
+    flex-direction: row;
+    flex:1;
+    font-family: monospace;
+    height: 100vh;
+}
+
+#div1{
+    display: flex;
+    flex-direction:column;
+    padding-left: 20px;
+    width: 30%;
+}
+
+#div2{
+    display: flex;
+    flex-direction:column;
+    flex:2;
+}
+
+#map{
+    height: 100%;
+    width:100%;
+}
+
+
+@media only screen and (max-width: 768px) {
+    #mainDiv {
+        flex-direction: column;
+    }
+
+    #div2 {
+        width: 100%; 
+        height: 100%;
+    }
+
+    #div1{
+        width: 100%;
+    }
+
+    #map {
+        height: 100%;
+        width: 100%; 
+    }
+}
