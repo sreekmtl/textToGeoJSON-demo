@@ -1,6 +1,6 @@
 # Demo Application for texttogeojson js package
 
-###Live App 
+### Live App 
 https://sreekmtl.github.io/textToGeoJSON-demo/
 
 ### For actual codebase of texttogeojson package, go to:
