@@ -91,7 +91,7 @@ convertBtn.addEventListener('click',async ()=>{
 
   //MAIN PART
 
-  await textToGeoJSON(text, './fonts/Roboto/Roboto-ThinItalic.ttf', anchorPoint3857,{textSize:Number(textSize.trim()),smoothness:Number(smoothness.trim())}).then(geojson=>{
+  await textToGeoJSON(text, './fonts/Roboto/Roboto-Bold.ttf', anchorPoint3857,{textSize:Number(textSize.trim()),smoothness:Number(smoothness.trim())}).then(geojson=>{
     console.log(geojson);
     let olVectorLayer= createVectorLayer(geojson);
     map.addLayer(olVectorLayer);
