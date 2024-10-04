@@ -1,3 +1,5 @@
+import  textToGeoJSON  from 'texttogeojson/index.js'
+
 import '../styles/style.css';
 import Map from 'ol/Map.js';
 import {XYZ,OSM} from 'ol/source';
@@ -5,7 +7,6 @@ import TileLayer from 'ol/layer/Tile.js';
 import View from 'ol/View.js';
 import 'ol/ol.css';
 import { transform } from 'ol/proj';
-import { textToGeoJSON } from "./index.js";
 import VectorLayer from "ol/layer/Vector";
 import VectorSource from "ol/source/Vector";
 import GeoJSON from 'ol/format/GeoJSON.js';
