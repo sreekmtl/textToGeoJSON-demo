@@ -1,4 +1,4 @@
-import  textToGeoJSON  from 'texttogeojson/index.js'
+import  textToGeoJSON  from 'texttogeojson'
 
 import '../styles/style.css';
 import Map from 'ol/Map.js';
@@ -24,6 +24,7 @@ sizeBox.value='100';
 let smoothSlider= document.getElementById('smoothSlider');
 smoothSlider.value='6';
 let mapType= document.getElementById('mapType');
+let fontType= document.getElementById('fontType');
 
 console.log('Hi from fontToGeoJSON');
 let coordinates;
@@ -42,6 +43,13 @@ let sourceMap={
           url: 'https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/MapServer/tile/{z}/{y}/{x}',
         }),
       })
+}
+
+let fontSource={
+  '1': './fonts/Roboto/Roboto-Bold.ttf',
+  '2': './fonts/Roboto/Roboto-Regular.ttf',
+  '3': './fonts/Roboto/Roboto-Italic.ttf',
+  '4': './fonts/great-vibes/GreatVibes-Regular.otf',
 }
 
 function loadMap(src){
@@ -77,6 +85,7 @@ function loadMap(src){
 
 convertBtn.addEventListener('click',async ()=>{
 
+  let font= fontSource[fontType.value];
   let text= textBox.value;
   if (text.length===0){
     alert('Enter Text first');
@@ -92,7 +101,7 @@ convertBtn.addEventListener('click',async ()=>{
 
   //MAIN PART
 
-  await textToGeoJSON(text, './fonts/Roboto/Roboto-Bold.ttf', anchorPoint3857,{textSize:Number(textSize.trim()),smoothness:Number(smoothness.trim())}).then(geojson=>{
+  await textToGeoJSON(text, font, anchorPoint3857,{textSize:Number(textSize.trim()),smoothness:Number(smoothness.trim())}).then(geojson=>{
     console.log(geojson);
     let olVectorLayer= createVectorLayer(geojson);
     map.addLayer(olVectorLayer);
